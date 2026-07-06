@@ -1,6 +1,4 @@
-/* ==========================================================================
-   1. БАЗОВЫЕ НАСТРОЙКИ СТРАНИЦЫ
-   ========================================================================== */
+/* Базовые стили */
 * {
     margin: 0;
     padding: 0;
@@ -8,27 +6,23 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Arial', sans-serif;
     min-height: 100vh;
-    /* Яркий фиолетово-бирюзовый градиент для фона всех страниц */
     background: linear-gradient(135deg, #7F00FF, #00FFED);
-    color: #333;
+    overflow-x: hidden;
 }
 
-
-/* ==========================================================================
-   2. ГЛАВНОЕ МЕНЮ (НАВИГАЦИЯ ВВЕРХУ СТРАНИЦЫ)
-   ========================================================================== */
+/* Меню верхнее */
 .main-header {
     width: 100%;
-    padding: 20px 0;
+    padding: 20px 0 10px 0;
     display: flex;
     justify-content: center;
 }
 
 .navigation {
     width: 90%;
-    max-width: 1000px;
+    max-width: 900px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -36,158 +30,116 @@ body {
 
 .nav-row {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    gap: 25px; /* Расстояние между вкладками */
+    gap: 30px;
     width: 100%;
-    padding: 10px 0;
+    padding: 8px 0;
 }
 
-/* Стили для ссылок в меню */
 .nav-link {
     text-decoration: none;
-    color: #333333; /* Тёмно-серый цвет букв */
-    font-size: 1.2rem;
-    font-weight: 600;
-    transition: color 0.3s ease, transform 0.2s ease;
+    color: #4c4c4c;
+    font-size: 1.3rem;
+    font-weight: bold;
 }
 
-/* Эффект при наведении мышки на меню */
-.nav-link:hover {
-    color: #ffffff;
-    transform: translateY(-2px);
-}
-
-/* Подсветка текущей активной страницы */
 .nav-link.active {
     color: #ffffff;
-    border-bottom: 2px solid #ffffff;
 }
 
-/* Чёрная разделительная линия в меню */
 .nav-divider {
     width: 100%;
     border: none;
-    border-top: 2px solid #000000;
-    margin: 5px 0;
+    border-top: 2.5px solid #000000;
+    margin: 4px 0;
 }
 
-
-/* ==========================================================================
-   3. КОНТЕНТНАЯ ЗОНА И ПАНЕЛЬ ФИЛЬТРОВ (ДОРАМЫ)
-   ========================================================================== */
+/* Зона слайда (По макету Screenshot_9_2.jpg) */
 .content-area {
-    padding: 20px;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
 }
 
-/* Общий контейнер для фильтров */
-.filter-panel {
-    width: 95%;
-    max-width: 950px;
-    margin: 10px auto;
-    padding: 30px 40px;
+.slide-container {
+    width: 90%;
+    max-width: 850px;
+    background: rgba(255, 255, 255, 0.12); /* Полупрозрачная подложка плашки */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border-radius: 8px;
+    padding: 40px 50px;
     display: flex;
     flex-direction: column;
-    gap: 45px; /* Большой вертикальный отступ между рядами */
+    gap: 35px; /* Фиксированные отступы между строками */
 }
 
-/* ШРИФТЫ КАК НА МАКЕТЕ: чёрные, массивные, максимально жирные */
-.filter-panel, 
-.filter-item, 
-.search-text-label, 
-.tag-bold {
-    color: #000000 !important;
-    font-weight: 900 !important;
-    font-family: 'Arial Black', 'Impact', sans-serif;
-}
-
-/* Ряд 1: Категории (По жанрам, По странам...) */
-.categories-row {
+/* Общий жирный черный текст для всего блока дорам */
+.slide-row {
     display: flex;
-    justify-content: space-between;
     width: 100%;
-}
-
-.filter-item {
-    font-size: 1.6rem;
-    letter-spacing: -0.5px;
-    cursor: pointer;
-}
-
-/* Ряд 2: Зона поиска (Поиск по фильтрам / Поиск по названию) */
-.search-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 0 10px;
-}
-
-.search-block {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.search-trigger-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    cursor: pointer;
-}
-
-.search-text-label {
+    color: #000000;
+    font-weight: calc(900);
     font-size: 1.5rem;
 }
 
-/* Круглые чёрные кнопочки-лупы со звёздами внутри */
-.custom-icon-btn {
-    width: 42px;
-    height: 42px;
-    border: 3px solid #000000;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: transparent;
-}
-
-.custom-icon-btn svg {
-    width: 24px;
-    height: 24px;
-    fill: #000000;
-}
-
-/* Скрытая по умолчанию строка ввода поиска по названию */
-.slide-search-input {
-    display: none; /* Скрипт включит её при клике */
-    width: 250px;
-    padding: 8px 15px;
-    border: 3px solid #000000;
-    border-radius: 20px;
-    background: rgba(255, 255, 255, 0.9);
-    font-size: 1.1rem;
-    font-weight: 700;
-    outline: none;
-}
-
-/* Ряд 3: Крупные нижние теги направлений */
-.tags-row {
-    display: flex;
+/* Ряд 1: По жанрам... */
+.row-1 {
     justify-content: space-between;
-    align-items: center;
-    width: 100%;
+}
+
+/* Ряд 2: Поиски */
+.row-2 {
+    justify-content: space-between;
     margin-top: 10px;
 }
 
-.tag-bold {
-    font-size: 3.2rem;
-    letter-spacing: -1px;
+.search-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
 }
 
-/* ОМЕГАВЕРС — самый огромный по центру */
-.tag-bold.main-title {
-    font-size: 4.5rem;
-    letter-spacing: 1px;
+/* Маленькие аккуратные круглые значки-лупы */
+.star-search-icon {
+    display: inline-block;
+    border: 2px solid #000000;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    line-height: 28px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+/* Ряд 3: Большие теги */
+.row-3 {
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.tag-left, .tag-right {
+    font-size: 2.8rem;
+}
+
+.tag-center {
+    font-size: 3.8rem; /* ОМЕГАВЕРС самый большой */
+}
+
+/* А это простая строка, которая появится вместо надписи */
+.input-hidden-row {
+    display: none;
+    text-align: right;
+    width: 100%;
+}
+
+.simple-input-box {
+    width: 300px;
+    padding: 6px 12px;
+    border: 2px solid #000000;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    outline: none;
 }
