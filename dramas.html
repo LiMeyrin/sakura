@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <!-- Меню -->
+    <!-- Меню сайта (Верхняя часть) -->
     <header class="main-header">
         <nav class="navigation">
             <div class="nav-row top-row">
@@ -29,51 +29,40 @@
         </nav>
     </header>
 
-    <!-- Блок контента строго по слайду Screenshot_9_2.jpg -->
+    <!-- Плашка со слайда Screenshot_9_2.jpg -->
     <main class="content-area">
-        <div class="slide-container">
+        <div class="slide-box">
             
-            <!-- Ряд 1 -->
-            <div class="slide-row row-1">
-                <div>По жанрам</div>
-                <div>По странам</div>
-                <div>По алфавиту</div>
-                <div>По годам</div>
+            <!-- Ряд 1: Текст категорий -->
+            <div class="slide-layout row-categories">
+                <span>По жанрам</span>
+                <span>По странам</span>
+                <span>По алфавиту</span>
+                <span>По годам</span>
             </div>
 
-            <!-- Ряд 2 -->
-            <div class="slide-row row-2">
-                <div class="search-item text-left">
-                    <span class="star-search-icon">🔍✨</span> Поиск по фильтрам
+            <!-- Ряд 2: Поисковые элементы с круглыми лупами -->
+            <div class="slide-layout row-search">
+                <div class="search-item-box">
+                    <span class="round-loop">🔍✨</span>
+                    <span class="search-label-text">Поиск по фильтрам</span>
                 </div>
-                <div class="search-item text-right" onclick="showInputBlock()">
-                    Поиск по названию <span class="star-search-icon" id="inputTargetIcon">🔍✨</span>
+                
+                <div class="search-item-box">
+                    <span class="search-label-text">Поиск по названию</span>
+                    <span class="round-loop">🔍✨</span>
                 </div>
             </div>
 
-            <!-- Скрытая строка, которая встанет на место надписи при клике -->
-            <div class="input-hidden-row" id="searchFieldRow">
-                <input type="text" class="simple-input-box" placeholder="Поиск по названию...">
-            </div>
-
-            <!-- Ряд 3 -->
-            <div class="slide-row row-3">
-                <div class="tag-left">ГЕТ</div>
-                <div class="tag-center">ОМЕГАВЕРС</div>
-                <div class="tag-right">BL</div>
+            <!-- Ряд 3: Крупные направления внизу -->
+            <div class="slide-layout row-tags">
+                <span class="side-tag">ГЕТ</span>
+                <span class="center-tag">ОМЕГАВЕРС</span>
+                <span class="side-tag">BL</span>
             </div>
 
         </div>
     </main>
-
-    <script>
-        function showInputBlock() {
-            // Прячем строку с текстом, показываем чистый инпут
-            document.querySelector('.row-2').style.display = 'none';
-            document.getElementById('searchFieldRow').style.display = 'block';
-            document.querySelector('.simple-input-box').focus();
-        }
-    </script>
 
 </body>
 </html>
