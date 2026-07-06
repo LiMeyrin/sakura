@@ -1,63 +1,140 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Дорамы</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+/* Полный сброс стилей */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    <header class="main-header">
-        <nav class="navigation">
-            <div class="nav-row top-row">
-                <a href="dramas.html" class="nav-link active">Дорамы</a>
-                <a href="serials.html" class="nav-link">Сериалы</a>
-                <a href="movies.html" class="nav-link">Фильмы</a>
-                <a href="anime.html" class="nav-link">Аниме</a>
-                <a href="donghua.html" class="nav-link">Дунхуа</a>
-                <a href="cartoons.html" class="nav-link">Мульты</a>
-            </div>
-            <hr class="nav-divider">
-            <div class="nav-row bottom-row">
-                <a href="manhwa.html" class="nav-link">Манхвы</a>
-                <a href="manhua.html" class="nav-link">Маньхуа</a>
-                <a href="manga.html" class="nav-link">Манги</a>
-                <a href="novels.html" class="nav-link">Новеллы</a>
-            </div>
-        </nav>
-    </header>
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #7F00FF, #00FFED);
+}
 
-    <main class="content-area">
-        <div class="slide-panel">
-            
-            <div class="panel-row row-one">
-                <div class="text-item">По жанрам</div>
-                <div class="text-item">По странам</div>
-                <div class="text-item">По алфавиту</div>
-                <div class="text-item">По годам</div>
-            </div>
+/* Навигационное верхнее меню */
+.main-header {
+    width: 100%;
+    padding: 20px 0 10px 0;
+    display: flex;
+    justify-content: center;
+}
 
-            <div class="panel-row row-two">
-                <div class="search-box-left">
-                    <span class="small-loop-btn">🔍</span>
-                    <span class="search-text">Поиск по фильтрам</span>
-                </div>
-                
-                <div class="search-box-right">
-                    <span class="search-text">Поиск по названию</span>
-                    <span class="small-loop-btn">🔍</span>
-                </div>
-            </div>
+.navigation {
+    width: 90%;
+    max-width: 950px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-            <div class="panel-row row-three">
-                <div class="big-tag tag-side">ГЕТ</div>
-                <div class="big-tag tag-main">ОМЕГАВЕРС</div>
-                <div class="big-tag tag-side">BL</div>
-            </div>
+.nav-row {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+    padding: 8px 0;
+}
 
-        </div>
-    </main>
+.nav-link {
+    text-decoration: none;
+    color: #4c4c4c;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
 
-</body>
-</html>
+.nav-link.active {
+    color: #ffffff;
+}
+
+.nav-divider {
+    width: 100%;
+    border: none;
+    border-top: 2.5px solid #000000;
+    margin: 5px 0;
+}
+
+
+/* --- ЦЕНТРАЛЬНАЯ ПЛАШКА ИЗ ВТОРОГО СКРИНШОТА --- */
+
+.content-area {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Сама плашка-контейнер */
+.slide-panel {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    gap: 55px; /* Жесткий фиксированный отступ между рядами */
+    padding: 20px 40px;
+}
+
+/* Все надписи делаем строго черными и жирными Arial Black */
+.panel-row {
+    display: flex;
+    width: 100%;
+    color: #000000 !important;
+    font-weight: 900 !important;
+    font-family: 'Arial Black', 'Impact', sans-serif !important;
+}
+
+/* Ряд 1: Категории разносим по ширине */
+.row-one {
+    justify-content: space-between;
+}
+
+.row-one .text-item {
+    font-size: 1.7rem;
+    letter-spacing: -0.5px;
+}
+
+/* Ряд 2: Блоки поиска */
+.row-two {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-box-left, 
+.search-box-right {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Четкий отступ, чтобы текст не слипался с лупой */
+}
+
+.row-two .search-text {
+    font-size: 1.6rem;
+}
+
+/* Маленькие, аккуратные круглые обводки для луп со второго скрина */
+.small-loop-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #000000; /* Черный контур */
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
+    padding-bottom: 2px; /* Выравнивание лупы внутри круга */
+}
+
+/* Ряд 3: Крупные нижние жанры (ГЕТ, ОМЕГАВЕРС, BL) */
+.row-three {
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.tag-side {
+    font-size: 3.8rem;
+    letter-spacing: -1px;
+}
+
+.tag-main {
+    font-size: 5rem; /* ОМЕГАВЕРС — самый огромный по центру */
+    letter-spacing: 1px;
+}
