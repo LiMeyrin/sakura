@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дорамы</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Наше общее меню (шапка) -->
+    <header class="main-header">
+        <nav class="navigation">
+            <div class="nav-row top-row">
+                <a href="dramas.html" class="nav-link active">Дорамы</a>
+                <a href="serials.html" class="nav-link">Сериалы</a>
+                <a href="movies.html" class="nav-link">Фильмы</a>
+                <a href="anime.html" class="nav-link">Аниме</a>
+                <a href="donghua.html" class="nav-link">Дунхуа</a>
+                <a href="cartoons.html" class="nav-link">Мульты</a>
+            </div>
+            <hr class="nav-divider">
+            <div class="nav-row bottom-row">
+                <a href="manhwa.html" class="nav-link">Манхвы</a>
+                <a href="manhua.html" class="nav-link">Маньхуа</a>
+                <a href="manga.html" class="nav-link">Манги</a>
+                <a href="novels.html" class="nav-link">Новеллы</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Основной контент страницы Дорамы -->
+    <main class="content-area">
+        <div class="filter-panel">
+            <!-- Верхний ряд фильтров -->
+            <div class="filter-row categories">
+                <span>По жанрам</span>
+                <span>По странам</span>
+                <span>По алфавиту</span>
+                <span>По годам</span>
+            </div>
+
+            <!-- Средний ряд: Поиск по фильтрам и Поиск по названию -->
+            <div class="filter-row search-buttons">
+                <div class="search-trigger">
+                    <span class="icon">🔍✨</span> Поиск по фильтрам
+                </div>
+                
+                <!-- Поиск по названию с кнопкой-лупой -->
+                <div class="search-trigger" onclick="toggleSearchInput()">
+                    Поиск по названию <span class="icon search-icon-btn">🔍✨</span>
+                </div>
+            </div>
+
+            <!-- Всплывающая пустая строка поиска по названию -->
+            <div class="search-input-container" id="titleSearchContainer">
+                <input type="text" placeholder="Введите название дорамы..." class="search-field">
+            </div>
+
+            <!-- Нижний ряд: Основные направления -->
+            <div class="filter-row tags">
+                <span class="tag-item">ГЕТ</span>
+                <span class="tag-item main-tag">ОМЕГАВЕРС</span>
+                <span class="tag-item">BL</span>
+            </div>
+        </div>
+
+        <!-- Ниже этого блока пойдет твой будущий список дорам -->
+        <div class="dramas-list">
+            <!-- Тут потом будут карточки дорам -->
+        </div>
+    </main>
+
+    <!-- Маленький скрипт для магии открытия строки поиска -->
+    <script>
+        function toggleSearchInput() {
+            const searchContainer = document.getElementById('titleSearchContainer');
+            // Переключаем класс видимости
+            searchContainer.classList.toggle('show');
+            
+            // Если строка открылась, сразу ставим туда фокус для ввода
+            if(searchContainer.classList.contains('show')) {
+                searchContainer.querySelector('.search-field').focus();
+            }
+        }
+    </script>
+
+</body>
+</html>
