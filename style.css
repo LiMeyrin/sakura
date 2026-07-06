@@ -1,4 +1,4 @@
-/* Полный сброс стилей */
+/* Обнуление базовых стилей */
 * {
     margin: 0;
     padding: 0;
@@ -11,7 +11,7 @@ body {
     background: linear-gradient(135deg, #7F00FF, #00FFED);
 }
 
-/* Навигационное верхнее меню */
+/* Верхняя панель навигации */
 .main-header {
     width: 100%;
     padding: 20px 0 10px 0;
@@ -54,87 +54,103 @@ body {
 }
 
 
-/* --- ЦЕНТРАЛЬНАЯ ПЛАШКА ИЗ ВТОРОГО СКРИНШОТА --- */
+/* --- МОНОЛИТНАЯ СЕТКА ДЛЯ ПАНЕЛИ ДОРАМ --- */
 
 .content-area {
     width: 100%;
     display: flex;
     justify-content: center;
-    padding: 20px;
+    padding: 30px 20px;
 }
 
-/* Сама плашка-контейнер */
-.slide-panel {
+.grid-panel {
     width: 100%;
-    max-width: 900px;
+    max-width: 950px;
     display: flex;
     flex-direction: column;
-    gap: 55px; /* Жесткий фиксированный отступ между рядами */
-    padding: 20px 40px;
+    gap: 65px; /* Фиксированные железные отступы между рядами */
 }
 
-/* Все надписи делаем строго черными и жирными Arial Black */
-.panel-row {
-    display: flex;
+/* Все тексты на панели: строго чёрные, Arial Black и супер-жирные */
+.grid-row {
     width: 100%;
     color: #000000 !important;
     font-weight: 900 !important;
     font-family: 'Arial Black', 'Impact', sans-serif !important;
 }
 
-/* Ряд 1: Категории разносим по ширине */
-.row-one {
-    justify-content: space-between;
+/* Выравнивание внутри сетки */
+.text-left { text-align: left; }
+.text-center-left { text-align: center; padding-right: 40px; }
+.text-center-right { text-align: center; padding-left: 40px; }
+.text-right { text-align: right; }
+.text-center { text-align: center; }
+
+/* Ряд 1: Четыре колонки */
+.row-four-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    font-size: 1.65rem;
 }
 
-.row-one .text-item {
-    font-size: 1.7rem;
-    letter-spacing: -0.5px;
-}
-
-/* Ряд 2: Блоки поиска */
-.row-two {
-    justify-content: space-between;
+/* Ряд 2: Две колонки для поиска */
+.row-two-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
 }
 
-.search-box-left, 
-.search-box-right {
+.grid-left {
     display: flex;
+    justify-content: flex-start;
     align-items: center;
-    gap: 15px; /* Четкий отступ, чтобы текст не слипался с лупой */
+    gap: 15px;
 }
 
-.row-two .search-text {
-    font-size: 1.6rem;
+.grid-right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 15px;
 }
 
-/* Маленькие, аккуратные круглые обводки для луп со второго скрина */
-.small-loop-btn {
+.row-two-columns .search-title {
+    font-size: 1.55rem;
+}
+
+/* СТИЛЬНЫЕ ЧЁРНЫЕ ГРАФИЧЕСКИЕ ЛУПЫ СО СТРАНИЦЫ */
+.custom-black-loop {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border: 3px solid #000000; /* Черный контур */
-    border-radius: 50%;
-    width: 36px;
-    height: 36px;
-    font-size: 1.1rem;
-    padding-bottom: 2px; /* Выравнивание лупы внутри круга */
+    width: 40px;
+    height: 40px;
+    background: transparent;
 }
 
-/* Ряд 3: Крупные нижние жанры (ГЕТ, ОМЕГАВЕРС, BL) */
-.row-three {
-    justify-content: space-between;
+.custom-black-loop svg {
+    width: 100%;
+    height: 100%;
+    fill: #000000; /* Полностью залиты чёрным цветом, без контуров и смайликов */
+}
+
+/* Ряд 3: Три независимые колонки, чтобы слова физически не слиплись */
+.row-three-columns {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr; /* ОМЕГАВЕРС по центру получает больше места */
     align-items: center;
-    margin-top: 10px;
 }
 
-.tag-side {
-    font-size: 3.8rem;
-    letter-spacing: -1px;
+.giant-tag {
+    display: block;
 }
 
-.tag-main {
-    font-size: 5rem; /* ОМЕГАВЕРС — самый огромный по центру */
-    letter-spacing: 1px;
+.row-three-columns .text-left, 
+.row-three-columns .text-right {
+    font-size: 3.5rem;
+}
+
+.row-three-columns .text-center {
+    font-size: 4.8rem; /* ОМЕГАВЕРС — огромный, гордый, по центру */
+    letter-spacing: 0.5px;
 }
