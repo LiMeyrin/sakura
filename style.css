@@ -1,4 +1,4 @@
-/* Обнуление */
+/* Базовый сброс стилей браузера */
 * {
     margin: 0;
     padding: 0;
@@ -9,10 +9,9 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     min-height: 100vh;
     background: linear-gradient(135deg, #7F00FF, #00FFED);
-    color: #333;
 }
 
-/* Стили меню (которые у нас работают идеально) */
+/* Верхнее меню (Навигация) */
 .main-header {
     width: 100%;
     padding: 20px 0;
@@ -30,7 +29,6 @@ body {
 
 .nav-row {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     gap: 25px;
     width: 100%;
@@ -55,76 +53,91 @@ body {
     margin: 5px 0;
 }
 
-/* Оформление контента второго слайда на основе сетки меню */
+/* Контейнер для макета со слайда */
 .content-area {
     width: 100%;
     display: flex;
     justify-content: center;
-    padding: 20px 0;
+    padding: 40px 20px;
 }
 
 .slide-container {
-    width: 90%;
-    max-width: 1000px; /* Такая же ширина, как у меню */
+    width: 100%;
+    max-width: 900px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 60px; /* Ровные отступы между строками */
-    margin-top: 30px;
+    gap: 70px; /* Большое фиксированное расстояние между строками */
+    margin-top: 20px;
 }
 
-/* Базовый жирный шрифт для всего слайда */
+/* Принудительный жирный чёрный шрифт Arial Black для контента дорам */
 .slide-row {
     display: flex;
     width: 100%;
     color: #000000 !important;
     font-weight: 900 !important;
-    font-family: 'Arial Black', 'Impact', sans-serif;
+    font-family: 'Arial Black', 'Impact', sans-serif !important;
 }
 
-/* Ряд 1: По жанрам... (копирует логику строк меню) */
+/* Ряд 1: Распределяем категории по краям, чтобы не слипались */
 .first-row {
     justify-content: space-between;
-    font-size: 1.6rem;
+    font-size: 1.7rem;
     padding: 0 10px;
 }
 
-/* Ряд 2: Поиски */
+.first-row .item {
+    display: block;
+}
+
+/* Ряд 2: Зона поиска */
 .second-row {
     justify-content: space-between;
-    font-size: 1.5rem;
-    padding: 0 40px; /* Чуть сдвигаем к центру, как на слайде */
+    align-items: center;
+    font-size: 1.6rem;
+    padding: 0 20px;
 }
 
-.search-left, .search-right {
+.search-block-left, 
+.search-block-right {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 15px; /* Фиксированный отступ между иконкой и текстом */
 }
 
-/* Круглые обводки луп */
-.loop-circle {
-    display: inline-block;
-    border: 3px solid #000000;
-    border-radius: 50%;
+/* СТИЛЬНЫЕ ЧЁРНЫЕ ЛУПЫ БЕЗ ЗВЁЗДЫ */
+.stylish-loop {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     width: 36px;
     height: 36px;
-    line-height: 28px;
-    text-align: center;
-    font-size: 1rem;
+    border: 3px solid #000000; /* Чёрный ободок */
+    border-radius: 50%;
 }
 
-/* Ряд 3: Огромные буквы внизу */
+.stylish-loop svg {
+    width: 20px;
+    height: 20px;
+    fill: #000000; /* Чёрный цвет самой лупы */
+}
+
+/* Ряд 3: Направления (ГЕТ, ОМЕГАВЕРС, BL) */
 .third-row {
     justify-content: space-between;
     align-items: center;
     padding: 0 10px;
 }
 
+.third-row .tag {
+    display: block;
+}
+
 .tag-get, .tag-bl {
-    font-size: 3.5rem;
+    font-size: 3.6rem;
 }
 
 .tag-omega {
-    font-size: 4.8rem; /* Самый огромный по центру */
+    font-size: 5rem; /* ОМЕГАВЕРС — самый крупный по центру */
+    letter-spacing: 1px;
 }
