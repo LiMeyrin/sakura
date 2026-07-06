@@ -1,4 +1,4 @@
-/* Базовые стили */
+/* Сброс всех отступов */
 * {
     margin: 0;
     padding: 0;
@@ -6,16 +6,16 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Arial Black', 'Impact', sans-serif; /* Супер-жирный и массивный шрифт */
     min-height: 100vh;
     background: linear-gradient(135deg, #7F00FF, #00FFED);
-    overflow-x: hidden;
+    color: #000000; /* Вся страница дорам строго в чёрном цвете текста */
 }
 
-/* Меню верхнее */
+/* Верхнее навигационное меню */
 .main-header {
     width: 100%;
-    padding: 20px 0 10px 0;
+    padding: 20px 0;
     display: flex;
     justify-content: center;
 }
@@ -41,6 +41,7 @@ body {
     color: #4c4c4c;
     font-size: 1.3rem;
     font-weight: bold;
+    font-family: Arial, sans-serif;
 }
 
 .nav-link.active {
@@ -50,96 +51,80 @@ body {
 .nav-divider {
     width: 100%;
     border: none;
-    border-top: 2.5px solid #000000;
-    margin: 4px 0;
+    border-top: 3px solid #000000;
+    margin: 5px 0;
 }
 
-/* Зона слайда (По макету Screenshot_9_2.jpg) */
+/* Стилизация контентного блока под слайд */
 .content-area {
     display: flex;
     justify-content: center;
-    padding-top: 10px;
+    padding: 10px 20px;
 }
 
-.slide-container {
-    width: 90%;
+.slide-box {
+    width: 100%;
     max-width: 850px;
-    background: rgba(255, 255, 255, 0.12); /* Полупрозрачная подложка плашки */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    border-radius: 8px;
-    padding: 40px 50px;
     display: flex;
     flex-direction: column;
-    gap: 35px; /* Фиксированные отступы между строками */
+    gap: 55px; /* Большие отступы между рядами текста */
+    padding: 20px 10px;
 }
 
-/* Общий жирный черный текст для всего блока дорам */
-.slide-row {
+/* Общая структура строк */
+.slide-layout {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
-    color: #000000;
-    font-weight: calc(900);
-    font-size: 1.5rem;
+    font-weight: 900;
 }
 
-/* Ряд 1: По жанрам... */
-.row-1 {
+/* Ряд 1: Верхние категории */
+.row-categories span {
+    font-size: 1.7rem;
+    letter-spacing: -0.5px;
+}
+
+/* Ряд 2: Элементы поиска */
+.row-search {
     justify-content: space-between;
+    padding: 0 10px;
 }
 
-/* Ряд 2: Поиски */
-.row-2 {
-    justify-content: space-between;
-    margin-top: 10px;
-}
-
-.search-item {
+.search-item-box {
     display: flex;
     align-items: center;
-    gap: 8px;
-    cursor: pointer;
+    gap: 12px;
 }
 
-/* Маленькие аккуратные круглые значки-лупы */
-.star-search-icon {
+.search-label-text {
+    font-size: 1.6rem;
+}
+
+/* Круглые рамки вокруг луп на слайде */
+.round-loop {
     display: inline-block;
-    border: 2px solid #000000;
+    border: 3px solid #000000;
     border-radius: 50%;
-    width: 32px;
-    height: 32px;
-    line-height: 28px;
+    width: 38px;
+    height: 38px;
+    line-height: 32px;
     text-align: center;
-    font-size: 1rem;
-}
-
-/* Ряд 3: Большие теги */
-.row-3 {
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 15px;
-}
-
-.tag-left, .tag-right {
-    font-size: 2.8rem;
-}
-
-.tag-center {
-    font-size: 3.8rem; /* ОМЕГАВЕРС самый большой */
-}
-
-/* А это простая строка, которая появится вместо надписи */
-.input-hidden-row {
-    display: none;
-    text-align: right;
-    width: 100%;
-}
-
-.simple-input-box {
-    width: 300px;
-    padding: 6px 12px;
-    border: 2px solid #000000;
-    border-radius: 4px;
     font-size: 1.1rem;
-    font-weight: bold;
-    outline: none;
+}
+
+/* Ряд 3: Большие нижние надписи */
+.row-tags {
+    align-items: center;
+}
+
+.side-tag {
+    font-size: 3.5rem;
+    letter-spacing: -1px;
+}
+
+.center-tag {
+    font-size: 4.6rem; /* ОМЕГАВЕРС — самый огромный по центру */
+    letter-spacing: 1px;
 }
