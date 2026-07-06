@@ -1,3 +1,6 @@
+/* ==========================================================================
+   1. БАЗОВЫЕ НАСТРОЙКИ СТРАНИЦЫ
+   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
@@ -7,10 +10,15 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     min-height: 100vh;
+    /* Яркий фиолетово-бирюзовый градиент для фона всех страниц */
     background: linear-gradient(135deg, #7F00FF, #00FFED);
     color: #333;
 }
 
+
+/* ==========================================================================
+   2. ГЛАВНОЕ МЕНЮ (НАВИГАЦИЯ ВВЕРХУ СТРАНИЦЫ)
+   ========================================================================== */
 .main-header {
     width: 100%;
     padding: 20px 0;
@@ -30,24 +38,33 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 25px;
+    gap: 25px; /* Расстояние между вкладками */
     width: 100%;
     padding: 10px 0;
 }
 
+/* Стили для ссылок в меню */
 .nav-link {
     text-decoration: none;
-    color: #333333;
+    color: #333333; /* Тёмно-серый цвет букв */
     font-size: 1.2rem;
     font-weight: 600;
     transition: color 0.3s ease, transform 0.2s ease;
 }
 
+/* Эффект при наведении мышки на меню */
 .nav-link:hover {
     color: #ffffff;
     transform: translateY(-2px);
 }
 
+/* Подсветка текущей активной страницы */
+.nav-link.active {
+    color: #ffffff;
+    border-bottom: 2px solid #ffffff;
+}
+
+/* Чёрная разделительная линия в меню */
 .nav-divider {
     width: 100%;
     border: none;
@@ -55,121 +72,122 @@ body {
     margin: 5px 0;
 }
 
+
+/* ==========================================================================
+   3. КОНТЕНТНАЯ ЗОНА И ПАНЕЛЬ ФИЛЬТРОВ (ДОРАМЫ)
+   ========================================================================== */
 .content-area {
-    padding: 40px 20px;
+    padding: 20px;
     text-align: center;
 }
 
-/* --- СТИЛИ ДЛЯ СТРАНИЦЫ ДОРАМ (Screenshot_9.jpg) --- */
-
-/* Контейнер панели фильтров с тенью */
+/* Общий контейнер для фильтров */
 .filter-panel {
-    background: rgba(255, 255, 255, 0.15); /* Полупрозрачный фон */
-    backdrop-filter: blur(10px); /* Легкое размытие */
-    border-radius: 15px;
-    padding: 25px;
-    width: 90%;
-    max-width: 900px;
-    margin: 20px auto;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2); /* Красивая тень */
+    width: 95%;
+    max-width: 950px;
+    margin: 10px auto;
+    padding: 30px 40px;
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 45px; /* Большой вертикальный отступ между рядами */
 }
 
-/* Общие стили для строк внутри панели */
-.filter-row {
+/* ШРИФТЫ КАК НА МАКЕТЕ: чёрные, массивные, максимально жирные */
+.filter-panel, 
+.filter-item, 
+.search-text-label, 
+.tag-bold {
+    color: #000000 !important;
+    font-weight: 900 !important;
+    font-family: 'Arial Black', 'Impact', sans-serif;
+}
+
+/* Ряд 1: Категории (По жанрам, По странам...) */
+.categories-row {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 15px;
-    font-weight: 700;
-    font-size: 1.15rem;
-}
-
-/* Верхний ряд */
-.filter-row.categories span {
-    cursor: pointer;
-    transition: color 0.3s;
-}
-.filter-row.categories span:hover {
-    color: #ffffff;
-}
-
-/* Средний ряд с поиском */
-.search-buttons {
-    justify-content: space-around;
-}
-
-.search-trigger {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: transform 0.2s;
-}
-.search-trigger:hover {
-    transform: scale(1.05);
-    color: #ffffff;
-}
-
-.icon {
-    font-size: 1.3rem;
-}
-
-/* Скрытый контейнер для строки поиска по названию */
-.search-input-container {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease, margin 0.3s ease;
     width: 100%;
-    display: flex;
-    justify-content: center;
 }
 
-/* Класс, который будет добавляться при клике на лупу */
-.search-input-container.show {
-    max-height: 50px;
-    margin-top: 5px;
-}
-
-/* Сама пустая строка ввода */
-.search-field {
-    width: 80%;
-    max-width: 500px;
-    padding: 10px 15px;
-    border: 2px solid #333;
-    border-radius: 20px;
-    font-size: 1rem;
-    outline: none;
-    background-color: rgba(255, 255, 255, 0.9);
-    box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
-}
-
-/* Нижний ряд с ГЕТ, ОМЕГАВЕРС, BL */
-.filter-row.tags {
-    justify-content: space-between;
-    padding: 10px 0;
-}
-
-.tag-item {
-    font-size: 2rem; /* Крупный текст как на макете */
+.filter-item {
+    font-size: 1.6rem;
+    letter-spacing: -0.5px;
     cursor: pointer;
-    transition: color 0.3s;
 }
 
-.tag-item.main-tag {
-    font-size: 2.8rem; /* ОМЕГАВЕРС по центру делаем самым большим */
-    letter-spacing: 2px;
+/* Ряд 2: Зона поиска (Поиск по фильтрам / Поиск по названию) */
+.search-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 10px;
 }
 
-.tag-item:hover {
-    color: #ffffff;
+.search-block {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
-/* Подсветка активной страницы в меню */
-.nav-link.active {
-    color: #ffffff;
-    border-bottom: 2px solid #ffffff;
+.search-trigger-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+}
+
+.search-text-label {
+    font-size: 1.5rem;
+}
+
+/* Круглые чёрные кнопочки-лупы со звёздами внутри */
+.custom-icon-btn {
+    width: 42px;
+    height: 42px;
+    border: 3px solid #000000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+}
+
+.custom-icon-btn svg {
+    width: 24px;
+    height: 24px;
+    fill: #000000;
+}
+
+/* Скрытая по умолчанию строка ввода поиска по названию */
+.slide-search-input {
+    display: none; /* Скрипт включит её при клике */
+    width: 250px;
+    padding: 8px 15px;
+    border: 3px solid #000000;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    font-weight: 700;
+    outline: none;
+}
+
+/* Ряд 3: Крупные нижние теги направлений */
+.tags-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.tag-bold {
+    font-size: 3.2rem;
+    letter-spacing: -1px;
+}
+
+/* ОМЕГАВЕРС — самый огромный по центру */
+.tag-bold.main-title {
+    font-size: 4.5rem;
+    letter-spacing: 1px;
 }
