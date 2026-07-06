@@ -59,3 +59,117 @@ body {
     padding: 40px 20px;
     text-align: center;
 }
+
+/* --- СТИЛИ ДЛЯ СТРАНИЦЫ ДОРАМ (Screenshot_9.jpg) --- */
+
+/* Контейнер панели фильтров с тенью */
+.filter-panel {
+    background: rgba(255, 255, 255, 0.15); /* Полупрозрачный фон */
+    backdrop-filter: blur(10px); /* Легкое размытие */
+    border-radius: 15px;
+    padding: 25px;
+    width: 90%;
+    max-width: 900px;
+    margin: 20px auto;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2); /* Красивая тень */
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Общие стили для строк внутри панели */
+.filter-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    font-weight: 700;
+    font-size: 1.15rem;
+}
+
+/* Верхний ряд */
+.filter-row.categories span {
+    cursor: pointer;
+    transition: color 0.3s;
+}
+.filter-row.categories span:hover {
+    color: #ffffff;
+}
+
+/* Средний ряд с поиском */
+.search-buttons {
+    justify-content: space-around;
+}
+
+.search-trigger {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s;
+}
+.search-trigger:hover {
+    transform: scale(1.05);
+    color: #ffffff;
+}
+
+.icon {
+    font-size: 1.3rem;
+}
+
+/* Скрытый контейнер для строки поиска по названию */
+.search-input-container {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, margin 0.3s ease;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Класс, который будет добавляться при клике на лупу */
+.search-input-container.show {
+    max-height: 50px;
+    margin-top: 5px;
+}
+
+/* Сама пустая строка ввода */
+.search-field {
+    width: 80%;
+    max-width: 500px;
+    padding: 10px 15px;
+    border: 2px solid #333;
+    border-radius: 20px;
+    font-size: 1rem;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Нижний ряд с ГЕТ, ОМЕГАВЕРС, BL */
+.filter-row.tags {
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+.tag-item {
+    font-size: 2rem; /* Крупный текст как на макете */
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.tag-item.main-tag {
+    font-size: 2.8rem; /* ОМЕГАВЕРС по центру делаем самым большим */
+    letter-spacing: 2px;
+}
+
+.tag-item:hover {
+    color: #ffffff;
+}
+
+/* Подсветка активной страницы в меню */
+.nav-link.active {
+    color: #ffffff;
+    border-bottom: 2px solid #ffffff;
+}
